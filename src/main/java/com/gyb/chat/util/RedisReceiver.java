@@ -129,8 +129,11 @@ public class RedisReceiver {
         });
     }
 
+    /**
+     * 有人发送消息时调用该方法
+     */
     public void onMessage(String message, Session session) {
-        System.out.println(message);
+
         try {
             JsonNode root = objectMapper.readTree(message);
             ObjectNode data= (ObjectNode) root.get("data");

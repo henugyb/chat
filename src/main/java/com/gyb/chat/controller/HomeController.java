@@ -10,10 +10,7 @@ import com.gyb.chat.util.RedisReceiver;
 import com.gyb.chat.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -32,7 +29,7 @@ public class HomeController {
     @Autowired
     RecordDao recordDao;
 
-    @GetMapping("/user/home")
+    @GetMapping({"/user/home", "/"})
     public Object home(ModelAndView mav, HttpSession session){
 
         User info = (User) session.getAttribute("UserInfo");
@@ -101,6 +98,10 @@ public class HomeController {
     }
 
 
+    @PostMapping("/find")
+    public String find() {
+        return "find";
+    }
 
     public String records(){
         return "heloo";

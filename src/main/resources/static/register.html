@@ -3,17 +3,36 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
 
-<form id="form1" action="/public/register" method="post" enctype="multipart/form-data">
-    用户名：<input type="text" name="username">
-    密码：<input type="text" name="password">
-    签名：<input type="text" name="sign">
-    头像：<input type="file" name="avatar" >
-    <input id="btn" type="submit" value="注册">
 
-</form>
+<div class="container">
+    <section id="content">
+        <form action="/public/register" method="post" enctype="multipart/form-data">
+            <h1>用户注册</h1>
+            <div>
+                <input type="text" name="username" placeholder="用户名" required="" id="username"/>
+            </div>
+            <div>
+                <input type="text" name="password" placeholder="密码" required="" id="password"/>
+            </div>
+            <div>
+                <input type="text" name="sign" placeholder="签名" required="" id="sign"/>
+            </div>
+            <div>
+                <input type="file" name="avatar" required="" id="avatar"/>
+            </div>
+            <div>
+                <input type="submit" value="注册"/>
+                <a href="/login.html">已有账号？去登录吧</a>
+            </div>
+        </form><!-- form -->
+    </section><!-- content -->
+</div><!-- container -->
 
 </body>
 </html>

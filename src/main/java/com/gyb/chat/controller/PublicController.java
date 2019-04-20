@@ -1,11 +1,13 @@
 package com.gyb.chat.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gyb.chat.bean.User;
 import com.gyb.chat.dao.UserDao;
 import com.gyb.chat.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
@@ -21,12 +23,10 @@ public class PublicController {
 
     @PostMapping("/public/login")
     public Object login(String username,String password, HttpSession session){
-
         User user = userDao.findByUsername(username);
         if(user==null){
             return "redirect:/login.html";
         }
-
         if(!user.getPassword().equals(password)){
             return "redirect:/login.html";
         }
@@ -38,6 +38,13 @@ public class PublicController {
     public Object createUser(String username,String password, String sign, MultipartFile avatar) {
         helloService.createUser(username,password, sign, avatar);
         return "redirect:/login.html";
+    }
+
+    @RequestMapping("/addUser")
+    @ResponseBody
+    public String find(String username, HttpSession session) {
+        System.out.println(username + " " + session.getAttribute("UserInfo"));
+        return "ads";
     }
 
 }

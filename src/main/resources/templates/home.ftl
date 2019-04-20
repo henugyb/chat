@@ -3,15 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>LayIM 3.x PC版本地演示</title>
+    <title>聊天</title>
 
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <style>
-        html{background-color: #333;}
+        html {
+            background-color: #f9f9f9;;
+        }
     </style>
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
-<body>
+<body id="content">
 
 <button id="bt1">添加所有用户为好友</button>
 
@@ -97,8 +100,8 @@
                     ,type: '' //默认post
                 }
 
-                ,isAudio: true //开启聊天工具栏音频
-                ,isVideo: true //开启聊天工具栏视频
+                , isAudio: false //开启聊天工具栏音频
+                , isVideo: false //开启聊天工具栏视频
 
                 //扩展工具栏
                 ,tool: [{
@@ -110,7 +113,7 @@
                 //,brief: true //是否简约模式（若开启则不显示主面板）
 
                 //,title: 'WebIM' //自定义主面板最小化时的标题
-                //,right: '100px' //主面板相对浏览器右侧距离
+                , right: '100px' //主面板相对浏览器右侧距离
                 //,minRight: '90px' //聊天面板最小化时相对浏览器右侧距离
                 ,initSkin: '2.jpg' //1-5 设置初始背景
                 //,skin: ['aaa.jpg'] //新增皮肤
@@ -120,9 +123,9 @@
                 ,notice: false //是否开启桌面消息提醒，默认false
                 //,voice: false //声音提醒，默认开启，声音文件为：default.mp3
 
-                ,msgbox: layui.cache.dir + 'css/modules/layim/html/msgbox.html' //消息盒子页面地址，若不开启，剔除该项即可
-                ,find: layui.cache.dir + 'css/modules/layim/html/find.html' //发现页面地址，若不开启，剔除该项即可
-                ,chatLog: layui.cache.dir + 'css/modules/layim/html/chatlog.html' //聊天记录页面地址，若不开启，剔除该项即可
+                //,msgbox: layui.cache.dir + 'css/modules/layim/html/msgbox.html' //消息盒子页面地址，若不开启，剔除该项即可
+                , find: layui.cache.dir + 'find.html' //发现页面地址，若不开启，剔除该项即可
+                , chatLog: layui.cache.dir + 'chatlog.html' //聊天记录页面地址，若不开启，剔除该项即可
 
             });
 
@@ -352,12 +355,6 @@
 
     start();
 
-
-    $(function () {
-
-
-
-    })
 
 
 </script>
